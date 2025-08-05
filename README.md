@@ -10,7 +10,7 @@
 
 ### POC:
 
-# Exploit working with manager , webmaster and admin cred 
+#### Exploit working with manager , webmaster and admin cred 
 1. Login with webmaster cred 
 2. Click Skin Editor > Resources > Img > any image file 
 3. Catch to request with burp suite , change path with lfi payload 
